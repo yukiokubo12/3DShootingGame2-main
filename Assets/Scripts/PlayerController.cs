@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
    public int maxHp;
    public int currentHp;
    public Slider playerHPSlider;
+   
    //ゲームオーバー処理
    private GameObject stateText;
    private GameObject retryButton;
@@ -35,9 +36,11 @@ public class PlayerController : MonoBehaviour
 
    void Start()
    {
+       //プレイヤーHP 
        this.playerHPSlider.value = 1;
        this.maxHp = 50;
        this.currentHp = this.maxHp;
+       
        this.myRigidbody = GetComponent<Rigidbody>();
        audioSource = GetComponent<AudioSource>();
        this.stateText = GameObject.Find("GameOverText");

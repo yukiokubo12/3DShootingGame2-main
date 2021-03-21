@@ -14,11 +14,11 @@ public class StageManager : MonoBehaviour
     private int numberOfPlanes;
     private int numberOfTanks;
 
-    private GameObject fields;
-    private GameObject field1;
-    private GameObject field2;
-    private GameObject field3;
-    private GameObject field4;
+    public GameObject fields;
+    public GameObject field1;
+    public GameObject field2;
+    public GameObject field3;
+    public GameObject field4;
     private float offsetZ;
 
     void Start()
@@ -54,14 +54,26 @@ public class StageManager : MonoBehaviour
             Invoke("AppearTank", 10);
         }
         //フィールドの動的生成
-        this.offsetZ = 100; 
-        // if(player.transform.position.z + offsetZ >= fields.transform.position.z)
+        // this.offsetZ = 100; 
+        // if(player.transform.position.z + offsetZ >= field1.transform.position.z)
         // {
-            this.field1.SetActive(true);
-            this.field2.SetActive(true);
-            this.field3.SetActive(true);
-            this.field4.SetActive(true);
-            Debug.Log("フィールド生成");
+        //     this.field1.SetActive(true);
+        //     Debug.Log("フィールド1生成");
+        // }
+        // if(player.transform.position.z + offsetZ <= field2.transform.position.z)
+        // {
+        //     this.field2.SetActive(true);
+        //     Debug.Log("フィールド2生成");
+        // }
+        // if(player.transform.position.z + offsetZ <= field3.transform.position.z)
+        // {
+        //     this.field3.SetActive(true);
+        //     Debug.Log("フィールド3生成");
+        // }
+        // if(player.transform.position.z + offsetZ <= field4.transform.position.z)
+        // {
+        //     this.field4.SetActive(true);
+        //     Debug.Log("フィールド4生成");
         // }
     }
 

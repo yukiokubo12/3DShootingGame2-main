@@ -2574,7 +2574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTankHp: 0
   currentTankHp: 0
-  explosionPrefab: {fileID: 5698461357420524835, guid: 5766d6be0eff14e95a2641002d5f6e98,
+  explosionPrefab: {fileID: 4257633829884147375, guid: f65df5b3c7f054884b467635d9365e89,
     type: 3}
   tankExplosionSound: {fileID: 8300000, guid: e0134f1a957354be693f6e1036c290c1, type: 3}
 --- !u!114 &855565118408695430

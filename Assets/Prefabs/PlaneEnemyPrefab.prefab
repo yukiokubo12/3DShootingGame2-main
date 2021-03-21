@@ -1307,7 +1307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4b98f052be204e4b89e9aa6b7f69196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionPrefab: {fileID: 5698461357420524835, guid: 5766d6be0eff14e95a2641002d5f6e98,
+  explosionPrefab: {fileID: 4257633829884147375, guid: f65df5b3c7f054884b467635d9365e89,
     type: 3}
   planeExplosionSound: {fileID: 8300000, guid: 69c2647745a5747259fd903bc7092299, type: 3}
 --- !u!114 &8939760509100537169
