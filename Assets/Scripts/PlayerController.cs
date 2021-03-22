@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
    private float velocityZ = 50f;
    //移動範囲
    private float movableRangeX = 10f;
-   private float movableRangeY = 10f;
+   private float movableRangeY = 11f;
    private float coefficient = 0.99f;
 
    private bool isEnd = false;
@@ -88,10 +88,10 @@ public class PlayerController : MonoBehaviour
    //自機消滅、爆発
    public void OnTriggerEnter(Collider other)
    {
-       shake.Shake(0.25f, 0.1f);
        //飛行機、建物と衝突
        if(other.gameObject.tag == "PlaneTag" || other.gameObject.tag == "BuildingTag")
        {
+           shake.Shake(0.25f, 0.1f);
            int damage = 10;
            this.currentHp -= damage;
            playerHPSlider.value = (float)currentHp / maxHp;
@@ -99,6 +99,7 @@ public class PlayerController : MonoBehaviour
        //飛行機弾との衝突
        if(other.gameObject.tag == "PlaneBulletTag")
        {
+           shake.Shake(0.25f, 0.1f);
            int damage = 5;
            this.currentHp -= damage;
            playerHPSlider.value = (float)currentHp / maxHp;
@@ -106,6 +107,7 @@ public class PlayerController : MonoBehaviour
        //タンクと衝突
        if(other.gameObject.tag == "TankTag")
        {
+           shake.Shake(0.25f, 0.1f);
            int damage = 20;
            this.currentHp -= damage;
            playerHPSlider.value = (float)currentHp / maxHp;

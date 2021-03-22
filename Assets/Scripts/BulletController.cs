@@ -18,21 +18,27 @@ public class BulletController : MonoBehaviour
     public double currentMp;
     public Slider playerMPSlider;
     
+    public Text scoreText;
+    private bool isShotEnable = true;
+    
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         // MP
         this.playerMPSlider.value = 1;
-        this.maxMp = 50;
+        this.maxMp = 100;
         this.currentMp = this.maxMp;
     }
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.A) && time <= 0f)
+        //isShotEnableが有効であれば、発射できる。
+        if(Input.GetKey(KeyCode.A) && time <= 0f && isShotEnable)
         {
             GameObject bullets = Instantiate(bullet) as GameObject;
+            bullets.GetComponent<ScoreController>().SetText(scoreText);
+            
             int attack = 10;
             this.currentMp -= attack;
             playerMPSlider.value = (float)currentMp / maxMp;
@@ -44,9 +50,8 @@ public class BulletController : MonoBehaviour
             bullets.GetComponent<Rigidbody>().AddForce(force);
             audioSource.PlayOneShot(playerBulletSound);
             Destroy(bullets, 1.5f);
-
         }
-        // this.seconds += Time.deltaTime;
+        
         if(this.currentMp <= maxMp)
         {
             Invoke("RecoverMp", 1);
@@ -57,11 +62,11 @@ public class BulletController : MonoBehaviour
             this.currentMp = maxMp;
             this.playerMPSlider.value = 1;
         }
-        if(this.currentMp <= 0)
+        if(this.currentMp <= 0 && isShotEnable)
         {
             this.currentMp = 0;
             this.playerMPSlider.value = 0;
-            MPCoroutine();
+            StartCoroutine(MPCoroutine());
             Invoke("RecoverMp", 1);
         }
         if(time > 0f)
@@ -71,13 +76,13 @@ public class BulletController : MonoBehaviour
     }
     void RecoverMp()
     {
-        this.currentMp += 0.01;
+        this.currentMp += 0.02;
         playerMPSlider.value = (float)currentMp / maxMp;
     }
     IEnumerator MPCoroutine()
     {
-        this.gameObject.SetActive(false);
-        yield return new WaitForSeconds(10.0f);
-        this.gameObject.SetActive(true);
+        isShotEnable = false;
+        yield return new WaitForSeconds(5.0f);
+        isShotEnable = true;
     }
 }

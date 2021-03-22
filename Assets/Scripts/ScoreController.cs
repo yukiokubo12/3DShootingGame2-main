@@ -11,16 +11,21 @@ public class ScoreController : MonoBehaviour
 
     void Start()
     {
-        // this.scoreText = GameObject.Find("ScoreText");
         score = 0;
         SetScore();
+    }
+
+    // /スコアの参照を渡す関数
+    public void SetText(Text scoreText)
+    {
+        this.scoreText = scoreText;
     }
 
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "PlaneTag" || other.gameObject.tag == "TankTag")
         {
-           score += 1;
+           score++;
         }
         SetScore();
     }
